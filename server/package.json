@@ -6,8 +6,7 @@
     "nodemon": "^3.0.1"
   },
   "type": "module",
-  
-"scripts":{
-  "dev":"nodemon index.js"
-}
+  "scripts": {
+    "dev": "nodemon index.js"
+  }
 }
