@@ -12,7 +12,7 @@ header, footer{
   align-items: center;
   padding: 1% 2%;
   color: white;
-  background-color: rgb(22, 23, 34);
+  background-image: linear-gradient(to left, #0099ff, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
 }
 header{
   width: 100%;
