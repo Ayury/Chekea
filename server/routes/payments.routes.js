@@ -1,0 +1,14 @@
+import { Router } from "express"
+
+import {crearOrden,capturarOrden,cancelarOrden} from '../controllers/payments.controller'
+
+const router = Router();
+
+router.post('/crear-orden', crearOrden)
+
+router.get('/capturar-orden', capturarOrden)
+
+router.get('/cancelar-orden', cancelarOrden)
+
+export default router;
+
