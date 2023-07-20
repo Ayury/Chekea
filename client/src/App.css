@@ -15,7 +15,10 @@ font-family: 'Open Sans', sans-serif;
   grid-template-columns: auto  1fr 1fr 1fr 1fr; /* Columnas: espacio disponible y contenido automático */
   align-items: center; /* Centrar elementos verticalmente */
   padding: 0px;
-  background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
+ background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
+ /* background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+ background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );*/
+
   color: #fff;
   position:fixed;
   top:0;
@@ -56,16 +59,16 @@ font-family: 'Open Sans', sans-serif;
  }
 
 .nombre-logo{
+  color: transparent;
   margin-bottom: 0%;
   font-size: 35px;
   letter-spacing: 10px;
-  color: transparent;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(247, 246, 244) 0%, rgb(228, 227, 224) 100.2% );
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(255, 255, 0) 0%, rgb(234, 194, 107) 100.2% );
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 198, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 251, 8, 0.7), 0 0 15px rgba(243, 230, 230, 0.1);
+  /*text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 198, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.1);*/
 }
-
 
 
 
@@ -130,7 +133,7 @@ font-family: 'Open Sans', sans-serif;
 }
 /* Estilo con efecto hover */
 .navPrincipal a:hover {
-  background-color: rgb(29, 78, 216);
+ background-color:  #0e7adfaf;
  
 }
 
@@ -188,8 +191,15 @@ font-family: 'Open Sans', sans-serif;
     padding: 10px 0;
   }
 }
-.session{
+.sesion{
   margin-left: 70px;
+}
+@media(max-width:1366px){
+  
+  .sesion{
+    margin-left: 70px;
+  }
+
 }
 /*****/
 .cardAutos{
