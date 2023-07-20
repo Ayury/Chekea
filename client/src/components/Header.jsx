@@ -1,40 +1,42 @@
-import React from 'react'
-import { useChekea } from '../context/ChekeaContext';
+import React from "react";
+import { useChekea } from "../context/ChekeaContext";
+import logo from "../assets/logo.png";
 
 export const Header = () => {
+  const { deslogear, usuarioLogeado } = useChekea();
 
-    const { deslogear, usuarioLogeado } = useChekea();
-
-    const CerrarSesion = () => {
-        deslogear();
-    }
+  const CerrarSesion = () => {
+    deslogear();
+  };
 
   return (
     <header className="header">
-    {/* <div className=" logo">Logo<img src="{logo-empresa.png}" alt=""/></div> */}
-    <div className=" nombreEmpresa degradado-verde"><h1 className="nombre-logo">Chekea</h1><p className="slogan">Nunca Compres a ciegas, chekea</p></div>
-    <nav className="nav">
+      <div className=" logo">
+        <img src={logo} alt="" />
+      </div>
+      <div className=" nombreEmpresa ">
+        <h2 className="nombre-logo">Chekea</h2>
+        <p className="slogan">Nunca Compres a ciegas, chekea</p>
+      </div>
+      <nav className="navPrincipal">
         <a href="/">Inicio</a>
         <a href="#">Vender Auto</a>
-        <a href="/talleres">Taller</a>
-       
+        <a href="/talleres">Talleres</a>
       </nav>
-      <div className="social-icons">
-        Redes Sociales
-      </div>
-      <nav className="nav">
-        {
-          localStorage.getItem('usuarioLogeado') ? (
-            <button onClick={CerrarSesion}>Cerrar Sesion</button>  
-          ) : (  
-            <a href="/login">Iniciar Sesion</a>
-          )
-        }
+      <div className="social-icons">Redes Sociales</div>
+      <nav className="sesion">
+        {localStorage.getItem("usuarioLogeado") ? (
+          <button onClick={CerrarSesion}>Cerrar Sesion</button>
+        ) : (
+          <a href="/login">Iniciar Sesion</a>
+        )}
       </nav>
-    
-    
-  </header>
 
-
-  )
-}
+      {/*   //<nav className="nav">
+        <a href="#">Iniciar Sesion</a>
+         
+      </nav>//
+     */}
+    </header>
+  );
+};
