@@ -5,7 +5,7 @@ import logo from '../assets/logo.png';
 
 export const Header = () => {
 
-    const { deslogear } = useChekea();
+    const { deslogear, usuarioLogeado } = useChekea();
 
     const CerrarSesion = () => {
         deslogear();
@@ -26,7 +26,15 @@ export const Header = () => {
         Redes Sociales
          
       </div>
-      <div className='sesion'>  <button onClick={CerrarSesion}>Cerrar Sesion</button></div>
+      <nav className="sesion">
+        {
+          localStorage.getItem('usuarioLogeado') ? (
+            <button onClick={CerrarSesion}>Cerrar Sesion</button>  
+          ) : (  
+            <a href="/login">Iniciar Sesion</a>
+          )
+        }
+      </nav>
     
    {/*   //<nav className="nav">
         <a href="#">Iniciar Sesion</a>

@@ -22,7 +22,7 @@ export const Login = () => {
         onSubmit={async (values, actions) => {
           const response = await logear(values);
           if(response == 1){
-            navigate("/inicio")
+            navigate("/")
           }
           
           actions.resetForm();

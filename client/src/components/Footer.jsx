@@ -1,7 +1,12 @@
 import React from 'react'
+import { BtnAgendar } from './BtnAgendar'
 
 export const Footer = () => {
+
   return (
-    <footer className='abanico'>Footer</footer>
+    <footer>
+      Información del Footer
+      <BtnAgendar />
+    </footer>
   )
 }

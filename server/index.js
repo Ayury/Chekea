@@ -3,6 +3,7 @@ import cors from 'cors';
 import { routeUsuario } from './routes/usuario.routes.js';
 import { routeAuto } from './routes/auto.route.js';
 import { routeTaller } from './routes/taller.route.js'
+import { routeCita } from './routes/cita.routes.js';
 
 // Iniciarlizar Express y utilizar el Cors
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(routeUsuario);
 app.use(routeAuto);
 app.use(routeTaller);
+app.use(routeCita);
 
 //Levantando el Servidor
 app.listen(3001);
