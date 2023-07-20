@@ -26,6 +26,20 @@ export const DetallesAuto = () => {
 
     cargarAuto();
   }, []);
+
+  const comprarAuto = async () => {
+    const response = await fetch('http://localhost:3001/crear-orden',
+    {
+        method: 'POST',
+        // body: JSON.stringify({ monto: 10.00 })
+        
+    })
+
+    const data = await response.json()
+    console.log(data)
+
+    window.location.href = data.links[1].href
+  }
   
 
   return (
@@ -73,7 +87,7 @@ export const DetallesAuto = () => {
           </div>
         </section>
         <section>
-          <Link to="/" >Comprar</Link>
+          <button onClick={comprarAuto}>Comprar</button>
         </section>
       </div>
       <Footer />

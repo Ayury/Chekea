@@ -1,13 +1,13 @@
 *{
   box-sizing: border-box;
-  
   margin: 0;
   padding: 0;
 }
 body{
-  
-font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
+
+
 /* Header */
 
 .header {
@@ -40,8 +40,7 @@ font-family: 'Open Sans', sans-serif;
 
 }
 .logo img{
-  width: 165px;
-  height: auto;
+  width: 100px;
 }
 
 @media(max-width:1366px){

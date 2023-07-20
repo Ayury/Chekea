@@ -4,6 +4,7 @@ import { routeUsuario } from './routes/usuario.routes.js';
 import { routeAuto } from './routes/auto.route.js';
 import { routeTaller } from './routes/taller.route.js'
 import { routeCita } from './routes/cita.routes.js';
+import { routerPayment } from './routes/payments.routes.js';
 
 // Iniciarlizar Express y utilizar el Cors
 const app = express();
@@ -15,6 +16,7 @@ app.use(routeUsuario);
 app.use(routeAuto);
 app.use(routeTaller);
 app.use(routeCita);
+app.use(routerPayment)
 
 //Levantando el Servidor
 app.listen(3001);

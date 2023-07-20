@@ -19,7 +19,7 @@
     const checkout = document.getElementById('checkout')
 
     checkout.addEventListener('click', async function(){
-        const response = await fetch('/crear-orden',
+        const response = await fetch('localhost:3001/crear-orden',
         {
             method: 'POST',
         })
