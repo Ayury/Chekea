@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  
   margin: 0;
   padding: 0;
 }
@@ -33,7 +34,7 @@ header{
   display: grid; /* Utilizar Grid Layout */
   grid-template-columns: auto  1fr 1fr 1fr 1fr; /* Columnas: espacio disponible y contenido automático */
   align-items: center; /* Centrar elementos verticalmente */
-  padding: 10px;
+  padding: 0px;
   background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
   color: #fff;
   position:fixed;
@@ -43,7 +44,7 @@ header{
 }
 @media(max-width:1366px){
   .header{
-  grid-template-columns: 1fr 1fr auto auto 1fr ;
+  grid-template-columns: auto 1fr auto auto 1fr ;
   
   }
 
@@ -52,37 +53,52 @@ header{
 /* Estilos para el logo */
 .logo {
   display: flex;
+  padding: 10px;
+  margin-left: 10px;
 
 }
 .logo img{
   width: 165px;
   height: auto;
 }
+
 @media(max-width:1366px){
   .logo{
       justify-content: center;
   }
-  .logo img{ width: 32%;
+  .logo img{ width: 120px;
   height: auto; }
+  .slogan{
+    font-size: 15px;
+  }
 }
 .nombreEmpresa {
    font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  color: transparent;
-}
+ }
 
 .nombre-logo{
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
   margin-bottom: 0%;
+  font-size: 35px;
+  letter-spacing: 10px;
+  color: transparent;
 }
 .slogan{
+  white-space: nowrap;
   font-weight: bold;
-  font-size:21px;
-
+  font-size:18px;
+  letter-spacing: 5px;
   color: white;
   margin-top: 0;
+}
+@media(max-width:1366px){
+   .nombre-logo{
+    font-size: 32px;
+   }
+  .slogan{
+      font-size: 12px;
+      letter-spacing: 4px;
+  }
+  
 }
 
 /** Degradados **/
@@ -94,43 +110,56 @@ header{
   background-clip: text;
 }
 /* Estilos para el menú de navegación */
-.nav {
+.navPrincipal {
   font-family: 'Anton', sans-serif;
   font-weight: 900;
   font-size: 20px;
-  display: flex; /* Utilizar Flexbox */
-  gap: 20px; /* Espaciado entre elementos */
-  justify-content: center;
-  
-}
-
-
-/* Estilos para los enlaces del menú */
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  
-}
-/* Estilos base del menú */
-.nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+  text-align: center;
+  flex-grow: 1;
+  text-align: center;
+  height: 100%;
+  margin: 0 0 0 200px ;
   
-  padding: 1
-  x;
+  
 }
-
-.nav a {
+.navPrincipal a {
   color: #fff;
   text-decoration: none;
-  padding: 8px 16px;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+  text-align: center;
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px; 
+  
 }
-
+.nav a:last-child {
+  border-right: none; /* Elimina la línea divisoria en el último enlace del nav */
+}
 /* Estilo con efecto hover */
 .nav a:hover {
   background-color: rgb(29, 78, 216);
   border-radius: 5px;
 }
+
+@media(max-width:1366px){
+  
+  .navPrincipal{
+      font-size: 17px;
+      margin: 0 0 0 100px ;
+  }
+
+}
+
+
+
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -145,17 +174,8 @@ header{
 
 }
 @media(max-width:1366px){
-  .nombreEmpresa{
-      font-size: 20px;
-  }
-  .slogan{
-      font-size: 15px;
-  }
-  .nav{
-      font-size: 17px;
-      margin-right: 15px;
-      padding-left: 0%;
-  }
+  
+  
   .social-icons{
       justify-content: center;
       margin-right: 0;
