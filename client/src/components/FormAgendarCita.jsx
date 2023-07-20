@@ -1,47 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Formik, Form } from "formik";
+import { useParams, useNavigate } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
 import { verAuto, imgAuto } from "../api/autos";
-
 
 // Componentes
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { allTalleres } from "../api/taller";
+import { useChekea } from "../context/ChekeaContext";
+import { agendarCita } from "../api/cita";
 
 export const FormAgendarCita = () => {
-    const params = useParams();
-    const [auto, setAuto] = useState({});
-    const [autoImg, setAutoImg] = useState([]);
-    const [talleres, setTalleres] = useState([]);
-    const [cita, setCita] = useState({
-        idUsuario: 0,
-        idAuto: params.id,
-        idTaller: "",
-        fecha: "",
-      });
-  
-    useEffect(() => {
-      const cargarAuto = async () => {
-        // Cargar datos del Auto
-        const response = await verAuto(params.id);
-        setAuto(response[0]);
-  
-        // Cargar imagenes del Auto
-        // const response2 = await imgAuto(params.id);
-        // console.log(response2);
-        // setAutoImg(response);
-      };
+  const navigate = useNavigate();
+  const params = useParams();
+  const [auto, setAuto] = useState({});
+  const [autoImg, setAutoImg] = useState([]);
+  const [talleres, setTalleres] = useState([]);
+  const [cita, setCita] = useState({});
 
-      const cargarTalleres = async () => {
-        const response = await allTalleres();
-        setTalleres(response);
+  useEffect(() => {
+    const cargarAuto = async () => {
+      try {
+        setCita({
+          idUsuario: localStorage.getItem('usuarioLogeado'),
+          idAuto: params.id,
+          idTaller: "",
+          fecha: "",
+        })
+      } catch (error) {
+        navigate("/")
       }
-  
-      cargarAuto();
-      cargarTalleres();
-    }, []);
 
+      // Cargar datos del Auto
+      const response = await verAuto(params.id);
+      setAuto(response[0]);
+
+      // Cargar imagenes del Auto
+      // const response2 = await imgAuto(params.id);
+      // console.log(response2);
+      // setAutoImg(response);
+    };
+
+    const cargarTalleres = async () => {
+      const response = await allTalleres();
+      setTalleres(response);
+    };
+
+    cargarAuto();
+    cargarTalleres();
+  }, []);
 
   return (
     <>
@@ -93,9 +100,11 @@ export const FormAgendarCita = () => {
           initialValues={cita}
           enableReinitialize={true}
           onSubmit={async (values, actions) => {
-            const response = await logear(values);
-            if (response == 1) {
-              navigate("/");
+            try {
+              await agendarCita(values);
+              navigate("/agendar");
+            } catch (error) {
+              // Mostrar mensaje de error
             }
 
             actions.resetForm();
@@ -104,6 +113,7 @@ export const FormAgendarCita = () => {
           {({ handleChange, handleSubmit, values, isSubmitting }) => (
             <Form action="/" method="get" onSubmit={handleSubmit}>
               <input
+                style={{ display: "none" }}
                 type="number"
                 id="idUsuario"
                 name="idUsuario"
@@ -112,6 +122,7 @@ export const FormAgendarCita = () => {
                 required={true}
               />
               <input
+                style={{ display: "none" }}
                 type="number"
                 id="idAuto"
                 name="idAuto"
@@ -123,8 +134,8 @@ export const FormAgendarCita = () => {
                 Seleccione el Taller:
                 <select
                   type="text"
-                  id="taller"
-                  name="taller"
+                  id="idTaller"
+                  name="idTaller"
                   value={values.idTaller}
                   onChange={handleChange}
                   required={true}

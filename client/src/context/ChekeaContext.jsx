@@ -15,14 +15,12 @@ export const ChekeaContext = createContext();
 
 export const ChekeaContextProvider = ({children}) => {
     
-    const [usuarioLogeado, setUsuarioLogeado] = useState();
     const navigate = useNavigate();
 
     const logear = async (values) => {
         try {
             const response = await login(values);
-            console.log(response);
-            setUsuarioLogeado(response);
+            localStorage.setItem('usuarioLogeado', response.idUsuario);
             return 1;
         } catch (error) {
             return 0;
@@ -30,12 +28,12 @@ export const ChekeaContextProvider = ({children}) => {
     }
 
     const deslogear = () => {
-        setUsuarioLogeado(null);
+        localStorage.removeItem('usuarioLogeado');
         navigate("/");
     }
     
     return(
-        <ChekeaContext.Provider value={{usuarioLogeado, logear, deslogear}}>
+        <ChekeaContext.Provider value={{logear, deslogear}}>
             {children}
         </ChekeaContext.Provider>
     )

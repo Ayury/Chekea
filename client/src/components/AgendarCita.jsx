@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Formik, Form } from "formik";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { autosPropietario, imgAutosPropietario } from "../api/autos";
-import { allTalleres } from "../api/taller";
-import { useChekea } from "../context/ChekeaContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AgendarCita = () => {
-  const { usuarioLogeado } = useChekea();
   const [autos, setAutos] = useState([]);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cargarAutos = async () => {
-      const response = await autosPropietario(1);
-      setAutos(response);
+      try {
+        const response = await autosPropietario(localStorage.getItem('usuarioLogeado'));
+        setAutos(response);
+      } catch (error) {
+        navigate("/")
+      }
     };
 
     cargarAutos();
   }, []);
-
-  const actualizarForm = (idAuto) => {
-  };
 
   return (
     <>

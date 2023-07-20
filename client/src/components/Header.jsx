@@ -3,7 +3,7 @@ import { useChekea } from '../context/ChekeaContext';
 
 export const Header = () => {
 
-    const { deslogear } = useChekea();
+    const { deslogear, usuarioLogeado } = useChekea();
 
     const CerrarSesion = () => {
         deslogear();
@@ -24,8 +24,13 @@ export const Header = () => {
         Redes Sociales
       </div>
       <nav className="nav">
-        <a href="#">Iniciar Sesion</a>
-        <button onClick={CerrarSesion}>Cerrar Sesion</button>  
+        {
+          localStorage.getItem('usuarioLogeado') ? (
+            <button onClick={CerrarSesion}>Cerrar Sesion</button>  
+          ) : (  
+            <a href="/login">Iniciar Sesion</a>
+          )
+        }
       </nav>
     
     
