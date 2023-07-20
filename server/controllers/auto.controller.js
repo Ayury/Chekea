@@ -14,7 +14,7 @@ export const getAllAuto = async (req, res) => {
 export const getAuto = async (req, res) => {
     try{
         const id = req.params.id;
-        const [result] = await pool.query("SELECT * FROM auto WHERE idAuto=?", [id]);
+        const [result] = await pool.query("SELECT placa, marca, modelo, anio, kilometraje, transmision, detalles, nombre, apellido, email, telefono FROM auto a INNER JOIN usuario u ON u.idUsuario=a.propietario WHERE idAuto=?", [id]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})

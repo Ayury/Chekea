@@ -6,10 +6,10 @@ export const verTodosLosAutos = async () => {
 }
 
 export const verAuto = async (idAuto) => {
-    const response = await axios.get(`http://localhost:3001/auto?id=${idAuto}`);
+    const response = await axios.get(`http://localhost:3001/auto/${idAuto}`);
     return response.data;
 }
 export const imgAuto = async (idAuto) => {
-    const response = await axios.get(`http://localhost:3001/auto/img?id=${idAuto}`);
+    const response = await axios.get(`http://localhost:3001/auto/img/${idAuto}`);
     return response.data;
 }

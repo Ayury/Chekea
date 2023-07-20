@@ -5,7 +5,11 @@ import { verAuto, imgAuto } from '../api/autos';
 
 export const DetallesAuto = () => {
     const params = useParams();
-    const [auto, setAuto] = useState();
+    const [auto, setAuto] = useState(
+        {
+
+        }
+    );
     const [autoImg, setAutoImg] = useState();
     
     useEffect(() => {
@@ -13,7 +17,7 @@ export const DetallesAuto = () => {
             // Cargar datos del Auto
             const response = await verAuto(params.id);
             console.log(response);
-            setAuto(response);
+            setAuto(response[0]);
 
             // Cargar imagenes del Auto
             const response2 = await imgAuto(params.id);
@@ -33,9 +37,9 @@ export const DetallesAuto = () => {
                 <h3>Imágenes</h3>
                 <div>Cargar todas la imagenes</div>
                 {
-                    autoImg.map(img => (
-                        <img key={img.idImagen} src={`carImagen/${imagen}`} />
-                    ))
+                    // autoImg.map(img => (
+                    //     <img key={img.idImagen} src={`carImagen/${imagen}`} />
+                    // ))
 
                 }
             </section>
@@ -46,12 +50,12 @@ export const DetallesAuto = () => {
                     <p>Modelo: {auto.modelo}</p>
                 </div>
                 <div>
-                    <p>Marca: {auto.placa}</p>
-                    <p>Modelo: {auto.anio}</p>
+                    <p>Placa: {auto.placa}</p>
+                    <p>Año: {auto.anio}</p>
                 </div>
                 <div>
-                    <p>Marca: {auto.kilometraje}</p>
-                    <p>Modelo: {auto.transmision}</p>
+                    <p>Kilometraje: {auto.kilometraje}</p>
+                    <p>Transmisión: {auto.transmision}</p>
                 </div>
             </section>
         </div>
