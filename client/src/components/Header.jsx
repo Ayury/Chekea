@@ -14,10 +14,9 @@ export const Header = () => {
     {/* <div className=" logo">Logo<img src="{logo-empresa.png}" alt=""/></div> */}
     <div className=" nombreEmpresa degradado-verde"><h1 className="nombre-logo">Chekea</h1><p className="slogan">Nunca Compres a ciegas, chekea</p></div>
     <nav className="nav">
-        <a href="#">Inicio</a>
-        <a href="#">Autos</a>
-        <a href="#">Venta</a>
-        <a href="#">Taller</a>
+        <a href="/">Inicio</a>
+        <a href="#">Vender Auto</a>
+        <a href="/talleres">Taller</a>
        
       </nav>
       <div className="social-icons">
