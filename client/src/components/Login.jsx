@@ -66,7 +66,10 @@ export const Login = () => {
             </Form>
           )}
         </Formik>
-        <h3>Si no tiene una cuenta aún, <Link to="/registrar">Regístrese</Link></h3>
+        <div className="footerLogReg">    
+          <h3>Si no tiene una cuenta aún, <Link to="/registrar">Regístrese</Link></h3>
+          <Link to="/" type="button" >Volver</Link>
+        </div>
       </div>
     </main>
   );

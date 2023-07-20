@@ -47,6 +47,55 @@
     margin: 4% 0 15% 0;
 }
 
+.formularioRegistrarse{
+    width: 100% !important;
+}
+.formularioRegistrarse section{
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+.formularioRegistrarse section div{
+    width: 48% !important;
+}
+.formularioRegistrarse section div input{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1% 2%;
+    border-radius: 5px;
+    border: 2px solid #01b3e7;
+    box-shadow: 1px 1px .5px black;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+}
+.formularioRegistrarse button{
+    padding: 1% 2%;
+    width: 100%;
+    background-color: #01b3e7;
+    color: white;
+    border: 2px solid #01b3e7;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 4% 0 12% 0;
+}
+
+.footerLogReg{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerLogReg :nth-child(2){
+    padding: .5% 5%;
+    background-color: #002b56;
+    color: white;
+    border: 2px solid #002b56;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
 
 .btnAgendar{
     position: fixed;
@@ -63,6 +112,8 @@
 /* Página Index */
 .mostrarAutos{
     width: 100%;
+    margin-top: 5.6%;
+    padding: 2% 0;
     background-color: rgb(9, 43, 51);
     /* display: grid;
     grid-template-columns: repeat(autofit, minmax(350px, 1fr)) !important; */
@@ -74,7 +125,7 @@
 }
 .mostrarAutos div{
     width: 30%;
-    margin: 10px 0;
+    margin: 15px 0;
     background-color: white;
     border-radius: 10px;
 }
@@ -85,6 +136,10 @@
 }
 
 /* Página Talleres */
+.mostrarTalleres{
+    margin-top: 5.6%;
+    padding: 2% 0;
+}
 .columnas3{
     width: 100%;
     display: flex;
@@ -108,8 +163,12 @@
 .cardTaller h2, .cardAuto h2{
     padding: 10px 0;
 }
-.cardTaller img, .cardAuto img{
+.cardTaller img{
     width: 90%;
+}
+.cardAuto img{
+    width: 90%;
+    margin-left: 5%;
 }
 .cardTaller div, .cardAuto div{
     width: 100%;
