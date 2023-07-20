@@ -1,0 +1,14 @@
+footer{
+    background-color: beige;
+}
+.btnAgendar{
+    position: absolute;
+    z-index: 5;
+    padding: 1% 2%;
+    background-color: rgb(6, 9, 174);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+    bottom: 20px;
+    right: 20px;
+}

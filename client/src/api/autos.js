@@ -13,3 +13,13 @@ export const imgAuto = async (idAuto) => {
     const response = await axios.get(`http://localhost:3001/auto/img/${idAuto}`);
     return response.data;
 }
+
+// Cargar autos registrados de un dueño
+export const autosPropietario = async (idUsuario) => {
+    const response = await axios.get(`http://localhost:3001/auto/propietario/${idUsuario}`);
+    return response.data;
+}
+export const imgAutosPropietario = async (idUsuario) => {
+    const response = await axios.get(`http://localhost:3001/auto/propietario/img/${idUsuario}`);
+    return response.data;
+}

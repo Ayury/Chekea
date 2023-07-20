@@ -6,6 +6,8 @@ import { Index } from './pages/Index'
 import { Login } from './components/Login'
 import { Registrar } from './components/Registrar'
 import { DetallesAuto } from './components/DetallesAuto'
+import { AgendarCita } from './components/AgendarCita'
+import { FormAgendarCita } from './components/FormAgendarCita'
  
 export const App = () => {
   return (
@@ -14,6 +16,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auto/:id" element={<DetallesAuto />} />
+          <Route path="/agendar" element={<AgendarCita />} />
+          <Route path="/agendar/:id" element={<FormAgendarCita />} />
 
 
           <Route path="/login" element={<Login />} />

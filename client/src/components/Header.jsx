@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <header className="header">
-    <div className=" logo">Logo<img src="{logo-empresa.png}" alt=""/></div>
+    {/* <div className=" logo">Logo<img src="{logo-empresa.png}" alt=""/></div> */}
     <div className=" nombreEmpresa degradado-verde"><h1 className="nombre-logo">Chekea</h1><p className="slogan">Nunca Compres a ciegas, chekea</p></div>
     <nav className="nav">
         <a href="#">Inicio</a>

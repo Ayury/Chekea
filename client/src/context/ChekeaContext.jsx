@@ -21,6 +21,7 @@ export const ChekeaContextProvider = ({children}) => {
     const logear = async (values) => {
         try {
             const response = await login(values);
+            console.log(response);
             setUsuarioLogeado(response);
             return 1;
         } catch (error) {
