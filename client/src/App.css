@@ -201,26 +201,12 @@ font-family: 'Open Sans', sans-serif;
   }
 
 }
-/*****/
-.cardAutos{
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 1% 2%;
-}
-.cardAutos div{
-  width: 30%;
-  height: 160px;
-  color: white;
-  background-color: blueviolet;
-}
 
 /* Contenido */
 .contenido{
   background-color: rgb(9, 43, 51);
   color: white;
+  width: 100%;
 }
 
 

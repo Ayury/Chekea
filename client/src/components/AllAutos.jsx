@@ -15,15 +15,14 @@ export const AllAutos = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Catálogo de Autos</h1>
-      <div className='cardAutos'>{
-        autos.map((auto) => (
-          <div key={auto.idAuto}>
-            <CardAuto id={auto.idAuto} marca={auto.marca} modelo={auto.modelo} anio={auto.anio} />
-          </div>
-        ) )}
-      </div>
+    <div className='contenido mostrarAutos'>
+        {
+          autos.map((auto) => (
+            <div key={auto.idAuto}>
+              <CardAuto id={auto.idAuto} marca={auto.marca} modelo={auto.modelo} anio={auto.anio} transmision={auto.transmision} />
+            </div>
+        )) 
+        }
     </div>
   )
 }

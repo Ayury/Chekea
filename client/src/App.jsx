@@ -9,6 +9,7 @@ import { DetallesAuto } from './components/DetallesAuto'
 import { AgendarCita } from './components/AgendarCita'
 import { FormAgendarCita } from './components/FormAgendarCita'
 import { Talleres } from './pages/Talleres'
+import { RegistrarAuto } from './components/RegistrarAuto'
  
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
           <Route path="/auto/:id" element={<DetallesAuto />} />
           <Route path="/agendar" element={<AgendarCita />} />
           <Route path="/agendar/:id" element={<FormAgendarCita />} />
+          <Route path="/vender" element={<RegistrarAuto />} />
           <Route path="/talleres" element={<Talleres />} />
 
 

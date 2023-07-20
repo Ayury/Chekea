@@ -23,3 +23,9 @@ export const imgAutosPropietario = async (idUsuario) => {
     const response = await axios.get(`http://localhost:3001/auto/propietario/img/${idUsuario}`);
     return response.data;
 }
+
+// Registrar auto
+export const registrarAuto = async (values) => {
+    const response = await axios.post("http://localhost:3001/auto", values);
+    return response.data;
+}

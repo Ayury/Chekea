@@ -21,11 +21,11 @@ export const Talleres = () => {
   return (
     <div>
         <Header />
-        <div className='contenido'>
+        <div className='contenido columnas3'>
             {
                 talleres.map((taller, index) => (
                     <div key={index}>
-                        <Taller idTaller={taller.idTaller} nombre={taller.nombre} telefono={taller.telefono} email={taller.email} ubicacion={taller.ubicacion} />
+                        <Taller idTaller={taller.idTaller} nombre={taller.nombre} telefono={taller.telefono} email={taller.email} ubicacion={taller.ubicacion} img={taller.img}/>
                     </div>
                 ))
             }

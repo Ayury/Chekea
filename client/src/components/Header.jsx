@@ -20,13 +20,13 @@ export const Header = () => {
       </div>
       <nav className="navPrincipal">
         <a href="/">Inicio</a>
-        <a href="#">Vender Auto</a>
+        <a href={ localStorage.getItem('usuarioLogeado') ? "/vender" : "/login" }>Vender Auto</a>
         <a href="/talleres">Talleres</a>
       </nav>
       <div className="social-icons">Redes Sociales</div>
       <nav className="sesion">
         {localStorage.getItem("usuarioLogeado") ? (
-          <button onClick={CerrarSesion}>Cerrar Sesion</button>
+          <a type="button" onClick={CerrarSesion}>Cerrar Sesion</a>
         ) : (
           <a href="/login">Iniciar Sesion</a>
         )}
