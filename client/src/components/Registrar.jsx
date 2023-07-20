@@ -35,30 +35,30 @@ export const Registrar = () => {
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
           <Form action="/" method="get" onSubmit={handleSubmit}>
-            <label htmlFor="nombre">
-              Nombre:
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Yury"
-                value={values.nombre}
-                onChange={handleChange}
-                required={true}
-              />
-            </label>
-            <label htmlFor="apellido">
-              Apellido:
-              <input
-                type="text"
-                id="apellido"
-                name="apellido"
-                placeholder="Agrazal"
-                value={values.apellido}
-                onChange={handleChange}
-                required={true}
-              />
-            </label>
+              <label htmlFor="nombre">
+                Nombre:
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Yury"
+                  value={values.nombre}
+                  onChange={handleChange}
+                  required={true}
+                />
+              </label>
+              <label htmlFor="apellido">
+                Apellido:
+                <input
+                  type="text"
+                  id="apellido"
+                  name="apellido"
+                  placeholder="Agrazal"
+                  value={values.apellido}
+                  onChange={handleChange}
+                  required={true}
+                />
+              </label>
             <label htmlFor="email">
               Email:
               <input

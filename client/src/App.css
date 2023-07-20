@@ -3,20 +3,29 @@
   margin: 0;
   padding: 0;
 }
-header{
+
+/* Header */
+header, footer{
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1% 2%;
-  background-color: aqua;
+  color: white;
+  background-color: rgb(22, 23, 34);
 }
-header div{
-  width: 60%;
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerDiv1{
+  width: 30%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
-
 .cardAutos{
   width: 100%;
   display: flex;
@@ -30,3 +39,12 @@ header div{
   color: white;
   background-color: blueviolet;
 }
+
+/* Contenido */
+.contenido{
+  background-color: rgb(9, 43, 51);
+  color: white;
+}
+
+
+/* Footer */

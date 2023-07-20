@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import { useChekea } from '../context/ChekeaContext';
 
-export const Index = () => {
+export const Login = () => {
   const navigate = useNavigate();
   const { logear } = useChekea();
 

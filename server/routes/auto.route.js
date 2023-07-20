@@ -4,7 +4,7 @@ import { getAllAuto, getAuto, insertAuto, updateAuto, deleteAuto } from "../cont
 export const routeAuto = Router();
 
 routeAuto.get("/auto", getAllAuto);
-routeAuto.get("/auto:id", getAuto);
-routeAuto.post("/auto", insertAuto)
-routeAuto.put("/auto:id", updateAuto);
-routeAuto.delete("/auto:id", deleteAuto);
+routeAuto.get("/auto/:id", getAuto);
+routeAuto.post("/auto", insertAuto);
+routeAuto.put("/auto/:id", updateAuto);
+routeAuto.delete("/auto/:id", deleteAuto);

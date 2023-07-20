@@ -1,10 +1,11 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ChekeaContextProvider } from './context/ChekeaContext'
-import { Autos } from './pages/Autos'
-import { Index } from './components'
+// Index principal
+import { Index } from './pages/Index'
+import { Login } from './components/Login'
 import { Registrar } from './components/Registrar'
-import { Inicio } from './pages/Inicio'
+import { DetallesAuto } from './components/DetallesAuto'
  
 export const App = () => {
   return (
@@ -12,8 +13,11 @@ export const App = () => {
       <ChekeaContextProvider>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/auto/:id" element={<DetallesAuto />} />
+
+
+          <Route path="/login" element={<Login />} />
           <Route path="/registrar" element={<Registrar />} />
-          <Route path="/inicio" element={<Inicio />} />
         </Routes>
       </ChekeaContextProvider>
     </div>

@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 // Obtener todos los autos
 export const getAllAuto = async (req, res) => {
     try{
-        const [result] = await pool.query("SELECT * FROM auto");
+        const [result] = await pool.query("SELECT * FROM auto WHERE catalogo=1");
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})
@@ -14,21 +14,28 @@ export const getAllAuto = async (req, res) => {
 export const getAuto = async (req, res) => {
     try{
         const id = req.params.id;
-        const result = await pool.query("SELECT * FROM auto WHERE id_auto=?", [id]);
+        const [result] = await pool.query("SELECT * FROM auto WHERE idAuto=?", [id]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})
     }
 }
+// Obtener las imagenes de un auto
+// export const getImgAuto = async (req, res) => {
+//     try{
+//         const id = req.params.id;
+//         const [result] = await pool.query("SELECT * FROM auto_imagen WHERE idAuto=?", [id]);
+//         res.json(result);
+//     }catch(err){
+//         res.status(500).json({error: err})
+//     }
+// }
 
-// Inserta un auto (Se reciben los valores por el Body)
+// Inserta un auto y su propietario (Se reciben los valores por el Body)
 export const insertAuto = async (req, res) => {
     try{
-        const { marca, placa, color, puerta, tipo } = req.body;
-        const [result] = await pool.query("INSERT INTO auto (marca, placa, color, puerta, tipo) VALUE(?,?,?,?,?)", [ marca, placa, color, puerta, tipo ]);
-        // res.json({
-        //     idDelRecienIngresado: result.insertId
-        // });
+        const { placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles } = req.body;
+        const [result] = await pool.query("INSERT INTO auto (placa, marca, modelo, anio, kilometraje, transmision, propietario, catalogo, detalles) VALUE(?,?,?,?,?,?,?,0,?)", [ placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles ]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})
