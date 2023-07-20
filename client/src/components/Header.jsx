@@ -10,17 +10,26 @@ export const Header = () => {
     }
 
   return (
-    <header>
-        <h1>Chekea</h1>
-        <div>
-            <div>
-                <p>Autos</p>
-                <p>Talleres</p>
-                <p>Otra cosa</p>
-            </div>
-            <button onClick={CerrarSesion}>Cerrar Sesion</button>  
-        </div>
-    </header>
+    <header className="header">
+    <div className=" logo">Logo<img src="/images/logo-empresa.png" alt=""/></div>
+    <div className=" nombreEmpresa degradado-verde"><h1 className="nombre-logo">Chekea</h1><p className="slogan">Nunca Compres a ciegas, chekea</p></div>
+    <nav className="nav">
+        <a href="#">Inicio</a>
+        <a href="#">Autos</a>
+        <a href="#">Venta</a>
+        <a href="#">Acerca de Nosotros</a>
+      </nav>
+      <div className="social-icons">
+        
+      </div>
+      <nav className="nav">
+        <a href="#">Iniciar Sesion</a>
+        <button onClick={CerrarSesion}>Cerrar Sesion</button>  
+      </nav>
+    
+    
+  </header>
+
 
   )
 }
