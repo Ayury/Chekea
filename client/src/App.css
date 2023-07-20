@@ -3,7 +3,10 @@
   margin: 0;
   padding: 0;
 }
-
+body{
+  
+font-family: 'Open Sans', sans-serif;
+}
 /* Header */
 /*header, footer{
   width: 100%;
@@ -63,7 +66,7 @@ header{
   height: auto; }
 }
 .nombreEmpresa {
-  font-family: 'Paytone One', sans-serif;
+   font-family: 'Anton', sans-serif;
   font-size: 30px;
   color: transparent;
 }
@@ -77,8 +80,8 @@ header{
 .slogan{
   font-weight: bold;
   font-size:21px;
-  font-family: 'Josefin Slab', serif;
-  color: black;
+
+  color: white;
   margin-top: 0;
 }
 
@@ -92,7 +95,8 @@ header{
 }
 /* Estilos para el menú de navegación */
 .nav {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Anton', sans-serif;
+  font-weight: 900;
   font-size: 20px;
   display: flex; /* Utilizar Flexbox */
   gap: 20px; /* Espaciado entre elementos */
@@ -106,6 +110,26 @@ header{
   color: #fff;
   text-decoration: none;
   
+}
+/* Estilos base del menú */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 1
+  x;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+/* Estilo con efecto hover */
+.nav a:hover {
+  background-color: rgb(29, 78, 216);
+  border-radius: 5px;
 }
 .social-icons {
   display: flex;
