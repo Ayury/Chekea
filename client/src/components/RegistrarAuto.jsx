@@ -17,7 +17,7 @@ export const RegistrarAuto = () => {
     transmision: "",
     id_propietario: localStorage.getItem("usuarioLogeado"),
     detalles: "",
-    imagenes: "",
+    imagen: Image,
   };
 
   const tipoTransmision = [
@@ -40,9 +40,10 @@ export const RegistrarAuto = () => {
           enableReinitialize={true}
           onSubmit={async (values, actions) => {
             // Agarrar archivo y darle el tratamiento
-            console.log((values.imagenes.split("\\"))[2]);
+            console.log((values.imagen.split("\\"))[2]);
+            console.log('valor de la imagen', values.imagen)
+            const response = await registrarAuto(values);
 
-            // const response = await registrarAuto(values);
             try {
               if (response.insertId > 0) {
                 navigate("/");
@@ -138,16 +139,16 @@ export const RegistrarAuto = () => {
                 </label>
               </section>
               <section>
-                <label htmlFor="imagenes">
-                  Imagenes:
+                <label htmlFor="imagen">
+                  Imagen:
                   <input
                   type="file"
-                  id="imagenes archivoInput"
-                  name="imagenes"
-                  value={values.imagenes}
+                  id="imagen archivoInput"
+                  name="imagen"
+                  value={values.imagen}
                   onChange={handleChange}
                   required={true}
-                  accept="image/png, image/jpg, image/jepg"
+                  accept="image/*"
                 />
                 </label>
                 

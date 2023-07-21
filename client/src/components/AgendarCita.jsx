@@ -43,10 +43,10 @@ export const AgendarCita = () => {
           {autos.map((auto) => (
             <div key={auto.idAuto}>
               <section className="autoInfo cardTaller">
+                <img src={auto.img ? auto.img : ferrariPrueba} />
                 <h1>
                   {auto.marca}, {auto.modelo}
-                </h1>
-                <img src={auto.img ? auto.img : ferrariPrueba} />
+                </h1><hr className="hrTitulo"/>
                 <div>
                   { auto.placa ? <p>Placa: {auto.placa}</p> : <p>&nbsp;</p> }
                   { auto.kilometraje ? <p>Kilometraje: {auto.kilometraje}</p> : <p>&nbsp;</p>}
@@ -66,16 +66,16 @@ export const AgendarCita = () => {
           {autosCita.map((auto) => (
             <div key={auto.idAuto}>
               <section className="autoInfo cardTaller">
+                <img src={auto.img ? auto.img : ferrariPrueba} />
                 <h1>
                   {auto.marca}, {auto.modelo}
-                </h1>
-                <img src={auto.img ? auto.img : ferrariPrueba} />
+                </h1><hr className="hrTitulo"/>
                 <div>
                   { auto.placa ? <p>Placa: {auto.placa}</p> : <p>&nbsp;</p> }
                   { auto.kilometraje ? <p>Kilometraje: {auto.kilometraje}</p> : <p>&nbsp;</p>}
                   { auto.transmision ? <p>Transmisión: {auto.transmision}</p> : <p>&nbsp;</p>}
                 </div>
-                <section>
+                <section className={`estadoInspeccion ${ auto.catalogo == 0 ? "noInspeccion" : "siInspeccion"}`}>
                   <h3>Estado: {auto.catalogo == 0 ? "En proceso de Inspeccion⌚" : "En el catálogo de Venta💵"}</h3>
                 </section>
               </section>

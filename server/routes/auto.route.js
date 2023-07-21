@@ -1,13 +1,11 @@
 import { Router } from "express";
-import { getAllAuto, getAuto, insertAuto, updateAuto, deleteAuto, autosPropietario, autosPropietarioConCita } from "../controllers/auto.controller.js";
+import { getAllAuto, getAuto, insertAuto, autosPropietario, autosPropietarioConCita } from "../controllers/auto.controller.js";
 
 export const routeAuto = Router();
 
 routeAuto.get("/auto", getAllAuto);
 routeAuto.get("/auto/:id", getAuto);
 routeAuto.post("/auto", insertAuto);
-routeAuto.put("/auto/:id", updateAuto);
-routeAuto.delete("/auto/:id", deleteAuto);
 
 // Autos de un dueño
 routeAuto.get("/auto/propietario/:id", autosPropietario);

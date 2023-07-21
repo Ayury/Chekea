@@ -57,7 +57,7 @@ export const FormAgendarCita = () => {
       <div className="contenidoTopBottom  contenido espacioSection">
         <section className="detallesAuto">
           <h1>Agendar Cita del Auto</h1>
-          <hr />
+          <hr className="hrTitulo"/>
           <div>
             <section>
               <h3>Imágenes</h3>
@@ -77,7 +77,7 @@ export const FormAgendarCita = () => {
             </section>
             <div>
               <section className="detalleAutoInfo">
-                <hr />
+                <hr className="hrTitulo"/>
                 <h3>Información</h3>
                 <section>
                   <div>
@@ -110,7 +110,7 @@ export const FormAgendarCita = () => {
           </div>
           <div>
             <section className="detalleAutoInfo">
-              <hr />
+              <hr className="hrTitulo"/>
               <h3>Datos del Propietario</h3>
               <section>
                 <div>
@@ -132,7 +132,7 @@ export const FormAgendarCita = () => {
               </section>
             </section>
           </div>
-          <hr />
+          <hr className="hrTitulo"/>
           <h2 style={{ textAlign: "center", margin: "2% 0" }}>
             Datos de la Cita a Agendar
           </h2>

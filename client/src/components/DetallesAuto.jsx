@@ -47,7 +47,7 @@ export const DetallesAuto = () => {
       <div className="contenidoTopBottom contenido espacioSection">
         <section className="detallesAuto">
           <h1>Detalles del Auto</h1>
-          <hr />
+          <hr className="hrTitulo"/>
           <div>
             <section>
               <h3>Imágenes</h3>
@@ -63,7 +63,7 @@ export const DetallesAuto = () => {
             </section>
             <div>
               <section className="detalleAutoInfo">
-                <hr />
+                <hr className="hrTitulo"/>
                 <h3>Información</h3>
                 <section>
                   <div>
@@ -84,7 +84,7 @@ export const DetallesAuto = () => {
           </div>
           <div>
             <section className="detalleAutoInfo">
-              <hr />
+              <hr className="hrTitulo"/>
               <h3>Datos del Propietario</h3>
               <section>
                 <div>

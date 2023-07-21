@@ -1,4 +1,7 @@
 import { pool } from "../db.js";
+import multer from "multer";
+import path from "path";
+
 
 // Obtener todos los autos
 export const getAllAuto = async (req, res) => {
@@ -20,51 +23,41 @@ export const getAuto = async (req, res) => {
         res.status(500).json({error: err})
     }
 }
-// Obtener las imagenes de un auto
-// export const getImgAuto = async (req, res) => {
-//     try{
-//         const id = req.params.id;
-//         const [result] = await pool.query("SELECT * FROM auto_imagen WHERE idAuto=?", [id]);
-//         res.json(result);
-//     }catch(err){
-//         res.status(500).json({error: err})
-//     }
-// }
+
+const storage = multer.diskStorage({
+    destination: "../client/public/carImage",
+    filename: (req, file, cb) => {
+        return cb(null, 
+ `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    fileFilter: function(req, file, cb) {
+        if(!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)) {
+            req.fileValidationError = "Only the image file is allowed";
+            return cb(new Error("Only the image file is allowed"), false);
+        }
+        cb(null, true);
+    },
+});
 
 // Inserta un auto y su propietario (Se reciben los valores por el Body)
 export const insertAuto = async (req, res) => {
+    // Configurar multer para guardar los archivos en la carpeta 'uploads'
     try{
-        const { placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles } = req.body;
-        const [result] = await pool.query("INSERT INTO auto (placa, marca, modelo, anio, kilometraje, transmision, propietario, catalogo, detalles) VALUE(?,?,?,?,?,?,?,0,?)", [ placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles ]);
+
+        const { placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles, imagen } = req.body;
+        console.log("Voy a guardar la imagen", imagen)
+        upload.single(imagen)
+        
+        // const [result] = await pool.query("INSERT INTO auto (placa, marca, modelo, anio, kilometraje, transmision, propietario, catalogo, detalles) VALUE(?,?,?,?,?,?,?,0,?)", [ placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles ]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})
     }
 }
-
-// Actualizar un auto
-export const updateAuto = async (req, res) => {
-    try{
-        const { placa, color, puerta } = req.body;
-        const id = req.params.id;
-        const result = await pool.query("UPDATE auto SET placa=?, color=?, puertas=? WHERE id_auto=?", [placa, color, puerta, id]);
-        res.json(result);
-    }catch(err){
-        res.status(500).json({error: err})
-    }
-}
-
-// Eliminar un auto
-export const deleteAuto = async (req, res) => {
-    try{
-        const id = req.params.id;
-        const result = await pool.query("DELETE FROM auto WHERE id_auto=?", [id]);
-        res.json(result);
-    }catch(err){
-        res.status(500).json({error: err})
-    }
-}
-
 
 // Autos de un dueño
 export const autosPropietario = async (req, res) => {
