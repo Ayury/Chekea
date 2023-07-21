@@ -21,16 +21,21 @@ export const Header = () => {
       <nav className="navPrincipal">
         <a href="/">Inicio</a>
         <a href={ localStorage.getItem('usuarioLogeado') ? "/vender" : "/login" }>Vender Auto</a>
+        <a href={ localStorage.getItem('usuarioLogeado') ? "/agendar" : "/login" }>Agendar cita</a>
         <a href="/talleres">Talleres</a>
-      </nav>
-      <div className="social-icons">Redes Sociales</div>
-      <nav className="sesion">
         {localStorage.getItem("usuarioLogeado") ? (
-          <a type="button" onClick={CerrarSesion}>Cerrar Sesion</a>
+          <a type="button" onClick={CerrarSesion} className="btnIniciarSesion">Cerrar Sesion</a>
         ) : (
-          <a href="/login">Iniciar Sesion</a>
+          <a href="/login" className="btnIniciarSesion">Iniciar Sesion</a>
         )}
       </nav>
+      {/* <nav className="sesion">
+        {localStorage.getItem("usuarioLogeado") ? (
+          <a type="button" onClick={CerrarSesion} className="btnIniciarSesion">Cerrar Sesion</a>
+        ) : (
+          <a href="/login" className="btnIniciarSesion">Iniciar Sesion</a>
+        )}
+      </nav> */}
 
       {/*   //<nav className="nav">
         <a href="#">Iniciar Sesion</a>

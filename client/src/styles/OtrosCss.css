@@ -1,3 +1,17 @@
+/* Iniciar Sesion */
+.btnIniciarSesion{
+    /* background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    color: white;
+    padding: 1% 15%;
+    width: 100% !important;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer; */
+    position: absolute;
+    right: 0px;
+    border-left: 1px solid rgb(178, 178, 178);
+}
+
 /* Página del Login */
 .mainLogin{
     width: 100%;
@@ -95,24 +109,12 @@
     text-decoration: none;
 }
 
-.btnAgendar{
-    position: fixed;
-    z-index: 5;
-    padding: 1% 2%;
-    background-color: rgb(6, 9, 174);
-    color: white;
-    border-radius: 5px;
-    border: 2px solid white;
-    bottom: 20px;
-    right: 20px;
-}
-
 /* Página Index */
 .mostrarAutos{
     width: 100%;
     margin-top: 5.6%;
     padding: 2% 0;
-    background-color: rgb(9, 43, 51);
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     /* display: grid;
     grid-template-columns: repeat(autofit, minmax(350px, 1fr)) !important; */
     display: flex;
@@ -123,14 +125,14 @@
 }
 .mostrarAutos div{
     width: 30%;
-    margin: 15px 0;
+    margin: 10px 0;
     background-color: white;
     border-radius: 10px;
 }
 .cardAuto{
     text-decoration: none;
     text-align: center;
-    color: rgb(6, 9, 174);
+    color: black;
 }
 
 /* Página Talleres */
@@ -153,7 +155,7 @@
 .cardTaller{
     width: 100%;
     background-color: white;
-    color: rgb(6, 9, 174);
+    color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 10px;
     box-shadow: 6px 6px 10px black;
@@ -211,9 +213,10 @@
     flex-wrap: wrap;
     font-size: 1.2rem;
     gap: 3%;
-    background-color: rgb(23, 23, 73);
-    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.851);
+    padding-top: 1.5%;
     border-radius: 5px;
+    color: black;
 }
 .formRegAuto input, .formRegAuto select, .formRegAuto textarea{
     width: 100%;
@@ -356,11 +359,23 @@ footer{
     gap: 1%;
     padding: 2%;
 }
-.grupo-1 :nth-child(1) img{
-    width: 130px;
+.box3{
+    width: 35%;
 }
-.box{
-    width: 30%;
+
+.infoFooter{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 4%;
+    width: 95%;
+}
+.box1{
+    width: 25%;
+}
+.box1 img{
+    width: 100px;
+    margin-left: 45px;
 }
 
 .grupo-2{
@@ -370,6 +385,18 @@ footer{
     padding: 1%;
     background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     color: white;
+}
+.box2 h2{
+    margin-bottom: 3%;
+}
+.box3 h2{
+    margin-bottom: 8%;
+}
+.red-social section{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
 }
 .red-social section a, .red-social section a img{
     width: 50px;

@@ -70,7 +70,18 @@ export const deleteAuto = async (req, res) => {
 export const autosPropietario = async (req, res) => {
     try{
         const id = req.params.id;
-        const [result] = await pool.query("SELECT * FROM auto WHERE propietario=?", [id]);
+        const [result] = await pool.query("SELECT a.* FROM auto a LEFT JOIN agendarcita ag ON a.idAuto=ag.idAuto WHERE a.propietario=? AND ag.idAuto IS NULL", [id]);
+        res.json(result);
+    }catch(err){
+        res.status(500).json({error: err})
+    }
+}
+
+// Auto con Cita
+export const autosPropietarioConCita = async (req, res) => {
+    try{
+        const id = req.params.id;
+        const [result] = await pool.query("SELECT a.* FROM auto a INNER JOIN agendarcita ag ON a.idAuto=ag.idAuto WHERE a.propietario=?", [id]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})

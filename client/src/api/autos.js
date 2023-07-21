@@ -19,6 +19,12 @@ export const autosPropietario = async (idUsuario) => {
     const response = await axios.get(`http://localhost:3001/auto/propietario/${idUsuario}`);
     return response.data;
 }
+
+export const autosPropietarioConCita = async (idUsuario) => {
+    const response = await axios.get(`http://localhost:3001/auto/propietario/cita/${idUsuario}`);
+    return response.data;
+}
+
 export const imgAutosPropietario = async (idUsuario) => {
     const response = await axios.get(`http://localhost:3001/auto/propietario/img/${idUsuario}`);
     return response.data;

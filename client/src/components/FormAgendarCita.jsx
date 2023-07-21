@@ -25,7 +25,7 @@ export const FormAgendarCita = () => {
         setCita({
           idUsuario: localStorage.getItem("usuarioLogeado"),
           idAuto: params.id,
-          idTaller: "",
+          idTaller: 1,
           fecha: "",
         });
       } catch (error) {
@@ -142,9 +142,17 @@ export const FormAgendarCita = () => {
             onSubmit={async (values, actions) => {
               try {
                 await agendarCita(values);
-                navigate("/agendar");
+                const response = await fetch("http://localhost:3001/crear-orden", {
+                  method: "POST",
+                  // body: JSON.stringify({ monto: 10.00 })
+                });
+
+                const data = await response.json();
+                console.log(data);
+
+                window.location.href = data.links[1].href;
               } catch (error) {
-                // Mostrar mensaje de error
+                console.log(error);
               }
 
               actions.resetForm();

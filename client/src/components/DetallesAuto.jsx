@@ -52,7 +52,7 @@ export const DetallesAuto = () => {
             <section>
               <h3>Imágenes</h3>
               <div className="divVerImgAuto">
-                { autoImg.length > 0 ? (
+                { autoImg ? (
                     autoImg.map(img => (
                       <img key={img.idImagen} src={`carImagen/${imagen}`} className="verImgAuto"/>
                   ))
