@@ -37,7 +37,8 @@
 }
 .formularioLogin button{
     padding: 1% 2%;
-    width: 100%;background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    width: 100%;
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     color: white;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -70,7 +71,8 @@
 }
 .formularioRegistrarse button{
     padding: 1% 2%;
-    width: 100%;background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    width: 100%;
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     color: white;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -187,7 +189,8 @@
     padding: 1% 10%;
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: bold;background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    font-weight: bold;
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     color: white;
     border-radius: 5px;
 }
@@ -239,7 +242,8 @@
     padding: .8% 0;
     margin: 4% 0 2% 30%;
     font-size: 1rem;
-    border-radius:  5px;background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
     color: white;
     font-weight: bold;
     border: 2px solid white;
@@ -342,5 +346,31 @@ hr{
 
 /* Footer */
 footer{
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
+}
+.grupo-1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    padding: 2%;
+}
+.grupo-1 :nth-child(1) img{
+    width: 130px;
+}
+.box{
+    width: 30%;
+}
+
+.grupo-2{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1%;
+    background-image: linear-gradient(to right, #09f, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+    color: white;
+}
+.red-social section a, .red-social section a img{
+    width: 50px;
 }

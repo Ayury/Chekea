@@ -22,7 +22,7 @@ a{
  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );*/
 
-  color: #fff;
+  color: #000000;
   position:fixed;
   top:0;
   left:0;
