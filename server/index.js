@@ -19,5 +19,5 @@ app.use(routeCita);
 app.use(routerPayment)
 
 //Levantando el Servidor
-app.listen(3000);
-console.log("Servidor levantado en el puerto 3000");
+app.listen(3001);
+console.log("Servidor levantado en el puerto 3001");
