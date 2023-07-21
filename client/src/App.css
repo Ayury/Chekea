@@ -91,12 +91,6 @@ body{
 }
 
 /** Degradados **/
-
-.degradado {
-  color: transparent;
-  /* /* background: linear-gradient(to bottom , yellow/*#ab2c09*/ /*0%, #ea4a0b 100% ); */ 
-  
-}
 /* Estilos para el menú de navegación */
 .navPrincipal {
   font-family: 'Anton', sans-serif;
