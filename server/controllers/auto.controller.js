@@ -26,12 +26,8 @@ export const getAuto = async (req, res) => {
 export const insertAuto = async (req, res) => {
     // Configurar multer para guardar los archivos en la carpeta 'uploads'
     try{
-
         const { placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles, imagen } = req.body;
-        console.log("Voy a guardar la imagen", imagen)
-        upload.single(imagen)
-        
-        // const [result] = await pool.query("INSERT INTO auto (placa, marca, modelo, anio, kilometraje, transmision, propietario, catalogo, detalles) VALUE(?,?,?,?,?,?,?,0,?)", [ placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles ]);
+        const [result] = await pool.query("INSERT INTO auto (placa, marca, modelo, anio, kilometraje, transmision, propietario, catalogo, detalles) VALUE(?,?,?,?,?,?,?,0,?)", [ placa, marca, modelo, anio, kilometraje, transmision, id_propietario, detalles ]);
         res.json(result);
     }catch(err){
         res.status(500).json({error: err})
