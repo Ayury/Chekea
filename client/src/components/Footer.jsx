@@ -9,7 +9,7 @@ export const Footer = () => {
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="public/images/logo-empresa.png" alt="Logo de SLee Dw"></img>
+                        <img src="\src\assets\logo.png" alt="Logo de chekea" width="10%" height="10%"></img>
                     </a>
                 </figure>
             </div>
