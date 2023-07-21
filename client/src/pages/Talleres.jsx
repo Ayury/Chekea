@@ -21,7 +21,7 @@ export const Talleres = () => {
   return (
     <div>
         <Header />
-        <div className='contenido columnas3'>
+        <div className='contenido columnas3 mostrarTalleres'>
             {
                 talleres.map((taller, index) => (
                     <div key={index}>

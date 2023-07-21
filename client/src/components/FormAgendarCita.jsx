@@ -9,6 +9,7 @@ import { Footer } from "./Footer";
 import { allTalleres } from "../api/taller";
 import { useChekea } from "../context/ChekeaContext";
 import { agendarCita } from "../api/cita";
+import ferrariPrueba from "../../public/carImage/ferrariPrueba.jpeg";
 
 export const FormAgendarCita = () => {
   const navigate = useNavigate();
@@ -22,13 +23,13 @@ export const FormAgendarCita = () => {
     const cargarAuto = async () => {
       try {
         setCita({
-          idUsuario: localStorage.getItem('usuarioLogeado'),
+          idUsuario: localStorage.getItem("usuarioLogeado"),
           idAuto: params.id,
           idTaller: "",
           fecha: "",
-        })
+        });
       } catch (error) {
-        navigate("/")
+        navigate("/");
       }
 
       // Cargar datos del Auto
@@ -53,120 +54,141 @@ export const FormAgendarCita = () => {
   return (
     <>
       <Header />
-      <div>
-        <h1>Detalles del Auto</h1>
-        <section>
+      <div className="contenidoTopBottom  contenido espacioSection">
+        <section className="detallesAuto">
+          <h1>Agendar Cita del Auto</h1>
+          <hr />
           <div>
             <section>
               <h3>Imágenes</h3>
-              <div>Cargar todas la imagenes</div>
-              {
-                // autoImg.map(img => (
-                //     <img key={img.idImagen} src={`carImagen/${imagen}`} />
-                // ))
-              }
+              <div className="divVerImgAuto">
+                {autoImg ? (
+                  autoImg.map((img) => (
+                    <img key={img.idImagen} src={`carImagen/${imagen}`} className="verImgAuto"/>
+                  ))
+                ) : (
+                  <img src={ferrariPrueba} className="verImgAuto"/>
+                )}
+              </div>
             </section>
-            <section>
+            <section className="detalleAutoInfo">
+              <hr />
               <h3>Información</h3>
               <div>
-                <p>Marca: {auto.marca}</p>
-                <p>Modelo: {auto.modelo}</p>
+                <p>
+                  Marca: <strong>{auto.marca}</strong>
+                </p>
+                <p>
+                  Modelo: <strong>{auto.modelo}</strong>
+                </p>
               </div>
               <div>
-                <p>Placa: {auto.placa}</p>
-                <p>Año: {auto.anio}</p>
+                <p>
+                  Placa: <strong>{auto.placa}</strong>
+                </p>
+                <p>
+                  Año: <strong>{auto.anio}</strong>
+                </p>
               </div>
               <div>
-                <p>Kilometraje: {auto.kilometraje}</p>
-                <p>Transmisión: {auto.transmision}</p>
+                <p>
+                  Kilometraje: <strong>{auto.kilometraje}</strong>
+                </p>
+                <p>
+                  Transmisión: <strong>{auto.transmision}</strong>
+                </p>
               </div>
             </section>
           </div>
           <div>
-            <h4>Datos del Propietario</h4>
-            <div>
-              <p>Nombre: {auto.nombre}</p>
-              <p>Apellido: {auto.apellido}</p>
-              <p>Teléfono: {auto.telefono}</p>
-            </div>
-            <div>
-              <p>Detalles: {auto.detalles}</p>
-            </div>
+            <section className="detalleAutoInfo">
+              <hr />
+              <h3>Datos del Propietario</h3>
+              <section>
+                <div>
+                  <p>
+                    Nombre: <strong>{auto.nombre}</strong>
+                  </p>
+                  <p>
+                    Apellido: <strong>{auto.apellido}</strong>
+                  </p>
+                  <p>
+                    Teléfono: <strong>{auto.telefono}</strong>
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    Detalles: <strong>{auto.detalles}</strong>
+                  </p>
+                </div>
+              </section>
+            </section>
           </div>
-        </section>
-      </div>
-      <div>
-        <Formik
-          initialValues={cita}
-          enableReinitialize={true}
-          onSubmit={async (values, actions) => {
-            try {
-              await agendarCita(values);
-              navigate("/agendar");
-            } catch (error) {
-              // Mostrar mensaje de error
-            }
+          <hr />
+          <h2 style={{ textAlign: "center", margin: "2% 0" }}>
+            Datos de la Cita a Agendar
+          </h2>
+          <Formik
+            initialValues={cita}
+            enableReinitialize={true}
+            onSubmit={async (values, actions) => {
+              try {
+                await agendarCita(values);
+                navigate("/agendar");
+              } catch (error) {
+                // Mostrar mensaje de error
+              }
 
-            actions.resetForm();
-          }}
-        >
-          {({ handleChange, handleSubmit, values, isSubmitting }) => (
-            <Form action="/" method="get" onSubmit={handleSubmit}>
-              <input
-                style={{ display: "none" }}
-                type="number"
-                id="idUsuario"
-                name="idUsuario"
-                value={values.idUsuario}
-                onChange={handleChange}
-                required={true}
-              />
-              <input
-                style={{ display: "none" }}
-                type="number"
-                id="idAuto"
-                name="idAuto"
-                value={values.idAuto}
-                onChange={handleChange}
-                required={true}
-              />
-              <label htmlFor="taller">
-                Seleccione el Taller:
-                <select
-                  type="text"
-                  id="idTaller"
-                  name="idTaller"
-                  value={values.idTaller}
-                  onChange={handleChange}
-                  required={true}
-                >
-                  {talleres.map((taller) => {
-                    return (
-                      <option value={taller.idTaller} key={taller.idTaller}>
-                        {taller.nombre}
-                      </option>
-                    );
-                  })}
-                </select>
-              </label>
-              <label htmlFor="fecha">
-                Fecha:
-                <input
-                  type="date"
-                  id="fecha"
-                  name="fecha"
-                  placeholder="*******"
-                  value={values.fecha}
-                  onChange={handleChange}
-                  required={true}
-                />
-              </label>
-              <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Enviando..." : "Enviar"}
-              </button>
-            </Form>
-          )}
-        </Formik>
+              actions.resetForm();
+            }}
+          >
+            {({ handleChange, handleSubmit, values, isSubmitting }) => (
+              <Form
+                action="/"
+                method="get"
+                onSubmit={handleSubmit}
+                className="formAgendar"
+              >
+                <div>
+                  <label htmlFor="taller">Seleccione el Taller:</label>
+                  <select
+                    type="text"
+                    id="idTaller"
+                    name="idTaller"
+                    value={values.idTaller}
+                    onChange={handleChange}
+                    required={true}
+                  >
+                    {talleres.map((taller) => {
+                      return (
+                        <option value={taller.idTaller} key={taller.idTaller}>
+                          {taller.nombre}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="fecha">Fecha:</label>
+                  <input
+                    type="date"
+                    id="fecha"
+                    name="fecha"
+                    placeholder="*******"
+                    value={values.fecha}
+                    onChange={handleChange}
+                    required={true}
+                  />
+                </div>
+                <section className="seccionBtn">
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Agendando..." : "Agendar"}
+                  </button>
+                </section>
+              </Form>
+            )}
+          </Formik>
+        </section>
       </div>
       <Footer />
     </>
