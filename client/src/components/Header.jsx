@@ -23,11 +23,15 @@ export const Header = () => {
         <a href={ localStorage.getItem('usuarioLogeado') ? "/vender" : "/login" }>Vender Auto</a>
         <a href={ localStorage.getItem('usuarioLogeado') ? "/agendar" : "/login" }>Agendar cita</a>
         <a href="/talleres">Talleres</a>
+        {localStorage.getItem("usuarioLogeado") == 1 && (
+          <a type="button" href="/reporte">Reportes</a>
+        )}
         {localStorage.getItem("usuarioLogeado") ? (
           <a type="button" onClick={CerrarSesion} className="btnIniciarSesion">Cerrar Sesion</a>
         ) : (
           <a href="/login" className="btnIniciarSesion">Iniciar Sesion</a>
         )}
+        
       </nav>
       {/* <nav className="sesion">
         {localStorage.getItem("usuarioLogeado") ? (
