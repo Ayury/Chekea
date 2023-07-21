@@ -25,7 +25,7 @@ export const FormAgendarCita = () => {
         setCita({
           idUsuario: localStorage.getItem("usuarioLogeado"),
           idAuto: params.id,
-          idTaller: 1,
+          idTaller: 2,
           fecha: "",
         });
       } catch (error) {
