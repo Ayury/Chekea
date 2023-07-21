@@ -21,7 +21,7 @@ export const Header = () => {
       <nav className="navPrincipal">
         <a href="/">Inicio</a>
         <a href={ localStorage.getItem('usuarioLogeado') ? "/vender" : "/login" }>Vender Auto</a>
-        <a href={ localStorage.getItem('usuarioLogeado') ? "/agendar" : "/login" }>Agendar cita</a>
+        <a href={ localStorage.getItem('usuarioLogeado') ? "/agendar" : "/login" }>Agendar Cita</a>
         <a href="/talleres">Talleres</a>
         {localStorage.getItem("usuarioLogeado") == 1 && (
           <a type="button" href="/reporte">Reportes</a>
