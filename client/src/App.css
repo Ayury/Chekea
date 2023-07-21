@@ -6,7 +6,9 @@
 body{
   font-family: 'Open Sans', sans-serif;
 }
-
+a{
+  text-decoration: none;
+}
 
 /* Header */
 
@@ -15,8 +17,9 @@ body{
   grid-template-columns: auto  1fr 1fr 1fr 1fr; /* Columnas: espacio disponible y contenido automático */
   align-items: center; /* Centrar elementos verticalmente */
   padding: 0px;
- background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
- /* background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  background-color: white;
+ /*  background-image: linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39));
+ background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );*/
 
   color: #fff;
@@ -36,7 +39,9 @@ body{
 .logo {
   display: flex;
   padding: 10px;
-  margin-left: 10px;
+  padding: 10px;
+  height: 100%;
+ 
 
 }
 .logo img{
@@ -55,6 +60,9 @@ body{
 }
 .nombreEmpresa {
    font-family: 'Anton', sans-serif;
+   padding: 10px;
+  height: 100%;
+  
  }
 
 .nombre-logo{
@@ -62,11 +70,14 @@ body{
   margin-bottom: 0%;
   font-size: 35px;
   letter-spacing: 10px;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(255, 255, 0) 0%, rgb(234, 194, 107) 100.2% );
+  background-image: linear-gradient(to left, #0099ff, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+  text-shadow: 0 0 5px rgba(16, 60, 205, 0.7), 0 0 10px rgba(0, 198, 255, 0.7), 0 0 15px rgba(33, 23, 216, 0.1);
+
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 251, 8, 0.7), 0 0 15px rgba(243, 230, 230, 0.1);
-  /*text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(0, 198, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.1);*/
+  /*  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(255, 255, 0) 0%, rgb(234, 194, 107) 100.2% );
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 251, 8, 0.7), 0 0 15px rgba(243, 230, 230, 0.1);*/
+  
 }
 
 
@@ -76,8 +87,9 @@ body{
   font-weight: bold;
   font-size:18px;
   letter-spacing: 5px;
-  color: white;
-  margin-top: 0;
+  color: #fff;
+  background-image: linear-gradient(to left, #0099ff, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+  padding: 2px;
 }
 @media(max-width:1366px){
    .nombre-logo{
@@ -91,12 +103,6 @@ body{
 }
 
 /** Degradados **/
-
-.degradado {
-  color: transparent;
-  /* /* background: linear-gradient(to bottom , yellow/*#ab2c09*/ /*0%, #ea4a0b 100% ); */ 
-  
-}
 /* Estilos para el menú de navegación */
 .navPrincipal {
   font-family: 'Anton', sans-serif;
@@ -114,7 +120,7 @@ body{
   
 }
 .navPrincipal a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   border-right: 1px solid #ccc;
   height: 100%;
@@ -132,7 +138,8 @@ body{
 }
 /* Estilo con efecto hover */
 .navPrincipal a:hover {
- background-color:  #0e7adfaf;
+  background-image: linear-gradient(to top, #0099ff, #0080d7, #0069b0, #00528b, #003c68, #013a63, #02375e, #033559, #054570, #075588, #0666a0, #0278b9);
+  color: #FFF;
  
 }
 
