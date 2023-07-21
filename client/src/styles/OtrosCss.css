@@ -150,7 +150,7 @@
 }
 .columnas3 div{
     width: 28%;
-    margin: 10px 0; 
+    margin: 10px 0;
 }
 .cardTaller{
     width: 100%;
@@ -174,6 +174,170 @@
     width: 100%;
     padding: 3% 0;
 }
+
+/* Agendar Citas */
+.contenidoTopBottom{
+    margin-top: 5.6%;
+    padding-bottom: 4%;
+}
+.autosRegistrados h1{
+    text-align: center;
+    padding: 1.5% 0;
+}
+.autoInfo section{
+    padding: 4%;
+}
+.autoInfo section a{
+    padding: 1% 10%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #01b3e7;
+    color: white;
+    border: 2px solid #01b3e7;
+    border-radius: 5px;
+}
+
+/* Registrar Auto */
+.regAuto{
+    padding: 2% 0;
+}
+.regAuto h1, .regAuto h2{
+    text-align: center;
+}
+.formRegAuto{
+    width: 70%;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    gap: 3%;
+    background-color: rgb(23, 23, 73);
+    padding: 2%;
+    border-radius: 5px;
+}
+.formRegAuto input, .formRegAuto select, .formRegAuto textarea{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1% 2%;
+    border-radius: 5px;
+    border: 2px solid #01b3e7;
+    box-shadow: 1px 1px .5px black;
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+}
+.formRegAuto section{
+    width: 40%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.formRegAuto :nth-child(2){
+    width: 40%;
+}
+.formRegAuto :nth-child(3){
+    width: 100%;
+}
+.formRegAuto :nth-child(3) button{
+    width: 40%;
+    padding: .8% 0;
+    margin: 4% 0 2% 30%;
+    font-size: 1rem;
+    border-radius:  5px;
+    background-color: #01b3e7;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+}
+.formRegAuto textarea{
+    width: 100%;
+}
+
+
+.espacioSection{
+    padding: 2% 0;
+}
+.detallesAuto{
+    font-size: 1.2rem;
+    width: 70%;
+    background-color: #002b56;
+    margin: auto;
+}
+
+.detallesAuto h1{
+    padding: 2% 0;
+}
+.detallesAuto h3{
+    margin: 2% 0;
+}
+.detallesAuto h1, .detallesAuto h3{
+    text-align: center;
+}
+.detalleAutoInfo section div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+    text-align: right;
+}
+.detalleAutoInfo section{
+    margin-bottom: 2%;
+}
+.seccionBtn{
+    width: 100%;
+    padding: 2% 0;
+}
+.seccionBtn button{
+    width: 40%;
+    padding: .8% 0;
+    border: 2px solid #01b3e7;
+    background-color: #01b3e7;
+    margin-left: 30%;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+hr{
+    width: 50%;
+    margin: auto;
+    height: 4px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.formAgendar{
+    width: 50%;
+    margin: auto;
+    padding-bottom: 2%;
+    font-size: 1.2rem;
+}
+.formAgendar input, .formAgendar select{
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 1%;
+    border: 2px solid #01b3e7;
+    border-radius: 5px;
+    padding: .8%;
+}
+.formAgendar button{
+    font-size: 1.1rem;
+}
+
+.divVerImgAuto{
+    width: 40%;
+    margin: 0 auto 3% auto;
+    
+}
+.verImgAuto{
+    width: 100%;
+    box-shadow: 2px 4px 20px black;
+}
+
+
 
 /* Footer */
 footer{

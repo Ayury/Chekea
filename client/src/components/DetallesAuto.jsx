@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 // Componentes
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import ferrariPrueba from '../../public/carImage/ferrariPrueba.jpeg'
+
 
 export const DetallesAuto = () => {
   const params = useParams();
@@ -28,66 +30,81 @@ export const DetallesAuto = () => {
   }, []);
 
   const comprarAuto = async () => {
-    const response = await fetch('http://localhost:3001/crear-orden',
-    {
-        method: 'POST',
-        // body: JSON.stringify({ monto: 10.00 })
-        
-    })
+    const response = await fetch("http://localhost:3001/crear-orden", {
+      method: "POST",
+      // body: JSON.stringify({ monto: 10.00 })
+    });
 
-    const data = await response.json()
-    console.log(data)
+    const data = await response.json();
+    console.log(data);
 
-    window.location.href = data.links[1].href
-  }
-  
+    window.location.href = data.links[1].href;
+  };
 
   return (
     <>
       <Header />
-      <div>
-        <h1>Detalles del Auto</h1>
-        <section>
+      <div className="contenidoTopBottom contenido espacioSection">
+        <section className="detallesAuto">
+          <h1>Detalles del Auto</h1>
+          <hr />
           <div>
             <section>
               <h3>Imágenes</h3>
-              <div>Cargar todas la imagenes</div>
-              {
-                // autoImg.map(img => (
-                //     <img key={img.idImagen} src={`carImagen/${imagen}`} />
-                // ))
-              }
-            </section>
-            <section>
-              <h3>Información</h3>
-              <div>
-                <p>Marca: {auto.marca}</p>
-                <p>Modelo: {auto.modelo}</p>
-              </div>
-              <div>
-                <p>Placa: {auto.placa}</p>
-                <p>Año: {auto.anio}</p>
-              </div>
-              <div>
-                <p>Kilometraje: {auto.kilometraje}</p>
-                <p>Transmisión: {auto.transmision}</p>
+              <div className="divVerImgAuto">
+                {
+                  autoImg ? (
+                    autoImg.map(img => (
+                      <img key={img.idImagen} src={`carImagen/${imagen}`} className="verImgAuto"/>
+                  ))
+                  ) : (
+                    <img src={ferrariPrueba} className="verImgAuto"/>
+                  )
+                }
               </div>
             </section>
+            <div>
+              <section className="detalleAutoInfo">
+                <hr />
+                <h3>Información</h3>
+                <section>
+                  <div>
+                    <p>Marca: <strong>{auto.marca}</strong></p>
+                    <p>Modelo: <strong>{auto.modelo}</strong></p>
+                  </div>
+                  <div>
+                    <p>Placa: <strong>{auto.placa}</strong></p>
+                    <p>Año: <strong>{auto.anio}</strong></p>
+                  </div>
+                  <div>
+                    <p>Kilometraje: <strong>{auto.kilometraje}</strong></p>
+                    <p>Transmisión: <strong>{auto.transmision}</strong></p>
+                  </div>
+                </section>
+              </section>
+            </div>
           </div>
           <div>
-            <h4>Datos del Propietario</h4>
-            <div>
-              <p>Nombre: {auto.nombre}</p>
-              <p>Apellido: {auto.apellido}</p>
-              <p>Teléfono: {auto.telefono}</p>
-            </div>
-            <div>
-              <p>Detalles: {auto.detalles}</p>
-            </div>
+            <section className="detalleAutoInfo">
+              <hr />
+              <h3>Datos del Propietario</h3>
+              <section>
+                <div>
+                  <p>Nombre: <strong>{auto.nombre}</strong></p>
+                  <p>Apellido: <strong>{auto.apellido}</strong></p>
+                  <p>Teléfono: <strong>{auto.telefono}</strong></p>
+                </div>
+                <div>
+                  <p>Detalles: <strong>{auto.detalles}</strong></p>
+                </div>
+              </section>
+            </section>
           </div>
-        </section>
-        <section>
-          <button onClick={comprarAuto}>Comprar</button>
+          <section className="seccionBtn">
+            <button onClick={comprarAuto}>
+              Comprar Documento de Inspección
+            </button>
+          </section>
         </section>
       </div>
       <Footer />
