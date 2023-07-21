@@ -1,6 +1,4 @@
 import { pool } from "../db.js";
-import multer from "multer";
-import path from "path";
 
 
 // Obtener todos los autos
@@ -23,25 +21,6 @@ export const getAuto = async (req, res) => {
         res.status(500).json({error: err})
     }
 }
-
-const storage = multer.diskStorage({
-    destination: "../client/public/carImage",
-    filename: (req, file, cb) => {
-        return cb(null, 
- `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-});
-
-const upload = multer({
-    storage: storage,
-    fileFilter: function(req, file, cb) {
-        if(!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)) {
-            req.fileValidationError = "Only the image file is allowed";
-            return cb(new Error("Only the image file is allowed"), false);
-        }
-        cb(null, true);
-    },
-});
 
 // Inserta un auto y su propietario (Se reciben los valores por el Body)
 export const insertAuto = async (req, res) => {
