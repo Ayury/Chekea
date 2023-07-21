@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2023 a las 06:19:56
+-- Tiempo de generación: 21-07-2023 a las 11:49:41
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -51,18 +51,20 @@ CREATE TABLE `auto` (
   `transmision` varchar(12) NOT NULL,
   `propietario` int(11) NOT NULL,
   `catalogo` int(1) NOT NULL DEFAULT 0,
-  `detalles` text NOT NULL
+  `detalles` text NOT NULL,
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `auto`
 --
 
-INSERT INTO `auto` (`idAuto`, `placa`, `marca`, `modelo`, `anio`, `kilometraje`, `transmision`, `propietario`, `catalogo`, `detalles`) VALUES
-(4, 'FVECD', 'CWCW', 'CW', 12, 21.00, 'WCWEC', 1, 1, 'C2WECWECW'),
-(5, 'tgr', 'ef3wf', 'ef3f', 2000, 0.00, '23d2', 2, 1, 'revreecfe'),
-(6, 'ABDABC', 'Mitsubishi', 'Nose', 2000, 40.00, 'No se', 1, 1, 'Probando el ejemplo del catalogo'),
-(7, 'ABDABC', 'Mitsubishi', 'Nose', 2000, 40.00, 'No se', 1, 1, 'Probando el ejemplo del catalogo');
+INSERT INTO `auto` (`idAuto`, `placa`, `marca`, `modelo`, `anio`, `kilometraje`, `transmision`, `propietario`, `catalogo`, `detalles`, `img`) VALUES
+(4, 'FVECD', 'Geely', 'Azkarra', 2022, 15.00, 'Automático', 1, 1, 'Lo compré en la sucursal al lado del Campus Central de la UTP', ''),
+(5, 'DR5VS1', 'BMW', 'i4 M50', 2023, 5.00, 'Manual', 2, 1, 'Está casi nuevo', ''),
+(6, 'ABDABC', 'BMW', 'iX3', 2020, 40.00, 'Automático', 1, 1, 'Uno de los mejores modelos', ''),
+(7, 'ABDABC', 'Mitsubishi', 'Outlander', 2021, 20.00, 'Automático', 1, 1, 'Es de Transmisión Automática', ''),
+(8, 'LEO', 'Mitsubishi', 'Lancer', 2010, 140.00, 'Manual', 1, 1, 'Lo estoy vendiendo porque me compré uno del año', '');
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ CREATE TABLE `reporte` (
   `idReporte` int(11) NOT NULL,
   `idCita` int(11) NOT NULL,
   `condicion` text NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `vender` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -139,20 +142,22 @@ CREATE TABLE `reporte` (
 
 CREATE TABLE `taller` (
   `idTaller` int(11) NOT NULL,
-  `nombre` varchar(15) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `razonSocial` varchar(15) NOT NULL,
   `telefono` varchar(15) NOT NULL,
   `email` varchar(25) NOT NULL,
-  `ubicacion` int(11) DEFAULT NULL
+  `ubicacion` int(11) DEFAULT NULL,
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `taller`
 --
 
-INSERT INTO `taller` (`idTaller`, `nombre`, `razonSocial`, `telefono`, `email`, `ubicacion`) VALUES
-(2, 'uno', 'uno', 'uno', 'uno', NULL),
-(3, 'dos', 'dos', 'v', 'v', NULL);
+INSERT INTO `taller` (`idTaller`, `nombre`, `razonSocial`, `telefono`, `email`, `ubicacion`, `img`) VALUES
+(2, 'Taller Foton', 'JKBC4AD', '6215-5100', 'tallerfoton@gmail.com', NULL, 'tallerFoton.png'),
+(3, 'Taller Multiservicios', 'LEW651WE', '399-5486', 'tallermultiservicios@gmai', NULL, 'tallerMultiserviciosEN.png'),
+(4, 'Asia Center', 'R5RF485', '6214-8520', 'asiacenterpa@gmail.com', NULL, 'asiaCenter.png');
 
 -- --------------------------------------------------------
 
@@ -252,13 +257,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `agendarcita`
 --
 ALTER TABLE `agendarcita`
-  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `auto`
 --
 ALTER TABLE `auto`
-  MODIFY `idAuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idAuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `auto_imagen`
@@ -288,13 +293,13 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `taller`
 --
 ALTER TABLE `taller`
-  MODIFY `idTaller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTaller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -311,9 +316,14 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `agendarcita`
   ADD CONSTRAINT `agendarcita_ibfk_1` FOREIGN KEY (`idTaller`) REFERENCES `taller` (`idTaller`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `agendarcita_ibfk_2` FOREIGN KEY (`idCita`) REFERENCES `reporte` (`idCita`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `agendarcita_ibfk_3` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `agendarcita_ibfk_4` FOREIGN KEY (`idAuto`) REFERENCES `auto` (`idAuto`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `auto`
+--
+ALTER TABLE `auto`
+  ADD CONSTRAINT `auto_ibfk_1` FOREIGN KEY (`propietario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `auto_imagen`
