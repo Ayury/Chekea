@@ -52,15 +52,13 @@ export const DetallesAuto = () => {
             <section>
               <h3>Imágenes</h3>
               <div className="divVerImgAuto">
-                {
-                  autoImg ? (
+                { autoImg.length > 0 ? (
                     autoImg.map(img => (
                       <img key={img.idImagen} src={`carImagen/${imagen}`} className="verImgAuto"/>
                   ))
                   ) : (
                     <img src={ferrariPrueba} className="verImgAuto"/>
-                  )
-                }
+                  ) }
               </div>
             </section>
             <div>
@@ -90,12 +88,11 @@ export const DetallesAuto = () => {
               <h3>Datos del Propietario</h3>
               <section>
                 <div>
-                  <p>Nombre: <strong>{auto.nombre}</strong></p>
-                  <p>Apellido: <strong>{auto.apellido}</strong></p>
+                  <p>Nombre: <strong>{auto.nombre} {auto.apellido}</strong></p>
                   <p>Teléfono: <strong>{auto.telefono}</strong></p>
                 </div>
                 <div>
-                  <p>Detalles: <strong>{auto.detalles}</strong></p>
+                  <p className="pDetalle">Detalles: <strong>{auto.detalles}</strong></p>
                 </div>
               </section>
             </section>

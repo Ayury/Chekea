@@ -62,43 +62,51 @@ export const FormAgendarCita = () => {
             <section>
               <h3>Imágenes</h3>
               <div className="divVerImgAuto">
-                {autoImg ? (
+                {autoImg.length > 0 ? (
                   autoImg.map((img) => (
-                    <img key={img.idImagen} src={`carImagen/${imagen}`} className="verImgAuto"/>
+                    <img
+                      key={img.idImagen}
+                      src={`carImagen/${imagen}`}
+                      className="verImgAuto"
+                    />
                   ))
                 ) : (
-                  <img src={ferrariPrueba} className="verImgAuto"/>
+                  <img src={ferrariPrueba} className="verImgAuto" />
                 )}
               </div>
             </section>
-            <section className="detalleAutoInfo">
-              <hr />
-              <h3>Información</h3>
-              <div>
-                <p>
-                  Marca: <strong>{auto.marca}</strong>
-                </p>
-                <p>
-                  Modelo: <strong>{auto.modelo}</strong>
-                </p>
-              </div>
-              <div>
-                <p>
-                  Placa: <strong>{auto.placa}</strong>
-                </p>
-                <p>
-                  Año: <strong>{auto.anio}</strong>
-                </p>
-              </div>
-              <div>
-                <p>
-                  Kilometraje: <strong>{auto.kilometraje}</strong>
-                </p>
-                <p>
-                  Transmisión: <strong>{auto.transmision}</strong>
-                </p>
-              </div>
-            </section>
+            <div>
+              <section className="detalleAutoInfo">
+                <hr />
+                <h3>Información</h3>
+                <section>
+                  <div>
+                    <p>
+                      Marca: <strong>{auto.marca}</strong>
+                    </p>
+                    <p>
+                      Modelo: <strong>{auto.modelo}</strong>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      Placa: <strong>{auto.placa}</strong>
+                    </p>
+                    <p>
+                      Año: <strong>{auto.anio}</strong>
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      Kilometraje: <strong>{auto.kilometraje}</strong>
+                    </p>
+                    <p>
+                      Transmisión: <strong>{auto.transmision}</strong>
+                    </p>
+                  </div>
+                </section>
+              </section>
+            </div>
           </div>
           <div>
             <section className="detalleAutoInfo">
@@ -107,17 +115,17 @@ export const FormAgendarCita = () => {
               <section>
                 <div>
                   <p>
-                    Nombre: <strong>{auto.nombre}</strong>
-                  </p>
-                  <p>
-                    Apellido: <strong>{auto.apellido}</strong>
+                    Nombre:{" "}
+                    <strong>
+                      {auto.nombre} {auto.apellido}
+                    </strong>
                   </p>
                   <p>
                     Teléfono: <strong>{auto.telefono}</strong>
                   </p>
                 </div>
                 <div>
-                  <p>
+                  <p className="pDetalle">
                     Detalles: <strong>{auto.detalles}</strong>
                   </p>
                 </div>
