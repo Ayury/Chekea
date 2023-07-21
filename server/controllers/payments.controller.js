@@ -1,17 +1,19 @@
 import axios from "axios"
 import { application, urlencoded } from "express"
-import { HOST, PAYPAL_API, PAYPAL_API_CLIENT, PAYPAL_API_SECRET_KEY } from "../config"
+import { HOST, PAYPAL_API, PAYPAL_API_CLIENT, PAYPAL_API_SECRET_KEY } from "../config.js"
 import { token } from "morgan";
 
 export const crearOrden = async (req, res) => {
     try {
+        // const { monto } = req.body;
+        // console.log(monto);
         const order = {
             intent: "CAPTURE",
             purchase_units: [
                 {
                 amount:{
                     currency_code: "USD",
-                    value: "10.00"
+                    value: 10.00
                 },
                 description: "Reporte técnico de la inspección del vehículo",
                 },
@@ -73,9 +75,9 @@ export const capturarOrden = async (req, res) => {
 
     console.log(response.data);
     
-    return res.redirect('pagado.html')
+    return res.redirect('/')
 };
 
 export const cancelarOrden = (req, res) => {
-    return res.redirect('index.html')
+    return res.redirect('/')
 };

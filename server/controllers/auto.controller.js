@@ -64,3 +64,15 @@ export const deleteAuto = async (req, res) => {
         res.status(500).json({error: err})
     }
 }
+
+
+// Autos de un dueño
+export const autosPropietario = async (req, res) => {
+    try{
+        const id = req.params.id;
+        const [result] = await pool.query("SELECT * FROM auto WHERE propietario=?", [id]);
+        res.json(result);
+    }catch(err){
+        res.status(500).json({error: err})
+    }
+}

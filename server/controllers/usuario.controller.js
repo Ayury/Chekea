@@ -25,7 +25,7 @@ export const getUsuario = async (req, res) => {
 export const Login = async (req, res) => {
     try{
         const { email, contra } = req.body;
-        const [result] = await pool.query("SELECT id_usuario, nombre, apellido, email, telefono FROM usuario WHERE email=? AND contrasena=?", [email, contra]);
+        const [result] = await pool.query("SELECT idUsuario, nombre, apellido, email, telefono FROM usuario WHERE email=? AND contrasena=?", [email, contra]);
         if(result.length > 0){
             res.json(result[0]);
         } else {

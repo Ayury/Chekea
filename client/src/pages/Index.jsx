@@ -8,9 +8,7 @@ export const Index = () => {
   return (
     <div>
         <Header />
-        <div className='contenido'>
-            <AllAutos />
-        </div>
+        <AllAutos />
         <Footer />
     </div>
   )
